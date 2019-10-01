@@ -6,7 +6,7 @@ import (
 )
 
 var (
-	ErrSetMemberExists = errors.New("ERR_SET_MEMBER_EXISTS")
+	ErrSetMemberExists    = errors.New("ERR_SET_MEMBER_EXISTS")
 	ErrSetMemberNotExists = errors.New("ERR_SET_MEMBER_NOT_EXISTS")
 )
 

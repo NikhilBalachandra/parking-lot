@@ -59,7 +59,7 @@ func (ims *InMemoryStorage) SetSize(size int) {
 	ims.slots = make([]Slot, size, size)
 	for i := 0; i < size; i++ {
 		ims.slots[i] = Slot{
-			ID:  i+1,
+			ID:  i + 1,
 			Car: nil,
 		}
 	}
@@ -107,7 +107,7 @@ func (ims *InMemoryStorage) RegNumForCarsWithColor(color string) []string {
 	slotIDs := ims.slotsByColor.Membership(color)
 	regNums := make([]string, 0)
 	for _, id := range slotIDs {
-		regNums = append(regNums, ims.slots[id - 1].Car.RegistrationNumber)
+		regNums = append(regNums, ims.slots[id-1].Car.RegistrationNumber)
 	}
 	return regNums
 }

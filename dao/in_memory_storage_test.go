@@ -10,7 +10,7 @@ func TestInMemoryStorage_Park(t *testing.T) {
 	storage.SetSize(6)
 
 	car := Car{
-		Color: "White",
+		Color:              "White",
 		RegistrationNumber: "KA-01-HH-1234",
 	}
 	err := storage.Park(1, &car)
@@ -23,11 +23,11 @@ func TestInMemoryStorage_ParkShouldNotAllowDuplicateCar(t *testing.T) {
 	storage := InMemoryStorage{}
 	storage.SetSize(6)
 	car := Car{
-		Color: "White",
+		Color:              "White",
 		RegistrationNumber: "KA-01-HH-1234",
 	}
 	car1 := Car{
-		Color: "White",
+		Color:              "White",
 		RegistrationNumber: "KA-01-HH-1234",
 	}
 	_ = storage.Park(1, &car)
@@ -40,11 +40,11 @@ func TestInMemoryStorage_ParkShouldNotAllowOccupiedSlot(t *testing.T) {
 	storage := InMemoryStorage{}
 	storage.SetSize(6)
 	car := Car{
-		Color: "White",
+		Color:              "White",
 		RegistrationNumber: "KA-01-HH-1234",
 	}
-	car1 := Car {
-		Color: "White",
+	car1 := Car{
+		Color:              "White",
 		RegistrationNumber: "KA-01-HH-1235",
 	}
 	_ = storage.Park(1, &car)
@@ -58,7 +58,7 @@ func TestInMemoryStorage_ParkShouldNotAllowSlotExceedingCapacity(t *testing.T) {
 	storage := InMemoryStorage{}
 	storage.SetSize(6)
 	car := Car{
-		Color: "White",
+		Color:              "White",
 		RegistrationNumber: "KA-01-HH-1234",
 	}
 	err := storage.Park(7, &car)
@@ -71,7 +71,7 @@ func TestInMemoryStorage_Leave(t *testing.T) {
 	storage := InMemoryStorage{}
 	storage.SetSize(6)
 	car := Car{
-		Color: "White",
+		Color:              "White",
 		RegistrationNumber: "KA-01-HH-1234",
 	}
 	_ = storage.Park(1, &car)
@@ -106,15 +106,15 @@ func TestInMemoryStorage_RegNumForCarsWithColor(t *testing.T) {
 	storage := InMemoryStorage{}
 	storage.SetSize(6)
 	_ = storage.Park(2, &Car{
-		Color: "White",
+		Color:              "White",
 		RegistrationNumber: "KA-01-HH-1234",
 	})
 	_ = storage.Park(2, &Car{
-		Color: "Red",
+		Color:              "Red",
 		RegistrationNumber: "KA-01-HH-1235",
 	})
 	_ = storage.Park(3, &Car{
-		Color: "White",
+		Color:              "White",
 		RegistrationNumber: "KA-01-HH-1236",
 	})
 	regNums := storage.RegNumForCarsWithColor("White")
@@ -138,15 +138,15 @@ func TestInMemoryStorage_SlotNumForCarsWithColor(t *testing.T) {
 	storage := InMemoryStorage{}
 	storage.SetSize(6)
 	_ = storage.Park(1, &Car{
-		Color: "White",
+		Color:              "White",
 		RegistrationNumber: "KA-01-HH-1234",
 	})
 	_ = storage.Park(2, &Car{
-		Color: "Red",
+		Color:              "Red",
 		RegistrationNumber: "KA-01-HH-1235",
 	})
 	_ = storage.Park(3, &Car{
-		Color: "White",
+		Color:              "White",
 		RegistrationNumber: "KA-01-HH-1236",
 	})
 	regNums := storage.SlotNumForCarsWithColor("White")
@@ -170,7 +170,7 @@ func TestInMemoryStorage_SlotNumForCarWithRegNum(t *testing.T) {
 	storage := InMemoryStorage{}
 	storage.SetSize(6)
 	_ = storage.Park(2, &Car{
-		Color: "White",
+		Color:              "White",
 		RegistrationNumber: "KA-01-HH-1234",
 	})
 	regNum := storage.SlotNumForCarWithRegNum("KA-01-HH-1234")

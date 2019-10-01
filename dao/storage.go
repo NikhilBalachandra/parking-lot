@@ -4,8 +4,8 @@ import "errors"
 
 var (
 	ErrSlotExceedsAvailableParking = errors.New("ERR_SLOT_EXCEEDS_AVAILABLE_PARKING")
-	ErrSlotAlreadyOccupied = errors.New("ERR_SLOT_ALREADY_OCCUPIED")
-	ErrSlotNotOccupied = errors.New("ERR_SLOT_NOT_OCCUPIED")
+	ErrSlotAlreadyOccupied         = errors.New("ERR_SLOT_ALREADY_OCCUPIED")
+	ErrSlotNotOccupied             = errors.New("ERR_SLOT_NOT_OCCUPIED")
 	// ErrDuplicateRegNum specifies error that is returned when second car
 	// with the same registration number is attempted to be parked.
 	ErrDuplicateRegNum = errors.New("ERR_DUPLICATE_REG_NUM")
@@ -13,8 +13,8 @@ var (
 
 type Status struct {
 	SlotNum int
-	RegNum string
-	Color string
+	RegNum  string
+	Color   string
 }
 
 // Car is a container struct to hold car details.

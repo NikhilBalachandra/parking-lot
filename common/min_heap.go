@@ -11,7 +11,7 @@ func (h *IntMinHeap) Push(x interface{}) {
 	*h = append(*h, x.(int))
 }
 
-func (h *IntMinHeap) Peek () interface{} {
+func (h *IntMinHeap) Peek() interface{} {
 	if h.Len() > 0 {
 		return (*h)[0]
 	}
