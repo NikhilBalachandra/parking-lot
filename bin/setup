@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Add script to:
 # * Install dependencies
 # * Build/Compile
@@ -5,3 +7,40 @@
 #
 # After this is run, bin/parking_lot
 # should Just Work.
+
+set -e
+
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+ROOT_DIR="$(dirname "$THIS_DIR")"
+echo "Detected root directory $ROOT_DIR"
+
+
+if ! command -v go > /dev/null 2>&1; then
+  echo "go compiler not found. Please install go > 1.11"
+  exit 255
+fi
+
+if ! go version | grep -E '1.11|1.12|1.13|1.14' > /dev/null 2>&1 ; then
+  echo "No compatible go version. Please use go > 1.11"
+  exit 255
+fi
+
+# Check if go path is correct.
+GOPATH="${GOPATH:-$HOME/go}"
+if ! [ "$ROOT_DIR" == "$GOPATH/src/parking_lot" ]; then
+  echo "Incorrect GOPATH. Please copy this project to $GOPATH/src/parking_lot"
+  exit 255
+fi
+
+(
+  set -e
+  cd "${ROOT_DIR}"
+  echo "Running tests..."
+  go test ./...
+
+  printf "\nBuilding binary\n"
+  go build -o parking_lot_binary "${ROOT_DIR}/cmd/parking_lot/main.go"
+
+  printf "\nCopying binary to bin\n"
+  mv parking_lot_binary "${ROOT_DIR}/bin/"
+)

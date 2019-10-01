@@ -19,3 +19,10 @@ ParkingLot-1.4.2.pdf
 
 # IDE related files
 .idea/
+
+# Gems cache / Rspec temp files
+functional_spec/.bundle
+functional_spec/.rspec_status
+
+# Binary
+bin/parking_lot_binary

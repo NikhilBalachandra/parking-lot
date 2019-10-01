@@ -7,6 +7,8 @@
 # This variable contains absolute path of this `parking_lot` script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
+exec "$DIR/parking_lot_binary" "$@"
+
 # Use DIR variable above to pinpoint your jar/executable/main class
 # e.g.
 # - if java
