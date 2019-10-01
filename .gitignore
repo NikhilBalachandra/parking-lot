@@ -26,3 +26,10 @@ functional_spec/.rspec_status
 
 # Binary
 bin/parking_lot_binary
+
+# macOS
+.DS_Store
+
+# Ruby Spec
+.bundle
+functional_spec/vendor/bundle
